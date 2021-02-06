@@ -1,0 +1,10 @@
+#folders
+/env
+env/
+
+#files
+tutorial.py
+tutorial.R
+.RData
+.Rhistory
+.Rprofile
