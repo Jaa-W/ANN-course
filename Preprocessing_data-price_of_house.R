@@ -40,3 +40,18 @@ library(dummies)
 df <- dummy.data.frame(df)
 df <- df[,-9]
 df <- df[,-14]
+
+
+# Test - Train
+
+set.seed(0)
+split = sample.split(df, SplitRatio = 0.8)
+training_set = subset(df, split ==TRUE)
+test_set = subset(df, split = FALSE)
+
+lm_a = lm(price~.,data = training_set)
+train_a = predict(lm_a, training_set)
+test_a = predict(lm_a, test_set)
+
+mean((training_set$price-train_a)^2)
+mean((test_set$price-test_a)^2)
